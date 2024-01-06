@@ -245,6 +245,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879aba899cf150345a1dc0732202a8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilitySlot_1:
+    _requiredTags: 0000000002000000
+  abilitySlot_2:
+    _requiredTags: 
+  abilitySlot_3:
+    _requiredTags: 
+  testAbility: {fileID: 11400000, guid: 92be2ed9598dfb54aa72908315db8552, type: 2}
 --- !u!1001 &5473474223750464517
 PrefabInstance:
   m_ObjectHideFlags: 0

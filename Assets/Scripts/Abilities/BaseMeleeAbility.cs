@@ -5,8 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MeleeAbility", menuName = "Abilities/MeleeAbility", order = 1)]
 public class BaseMeleeAbility : BaseAbilitySO
 {
-	public override void ActivateAbility()
-	{
-		Debug.Log("Melee ability activated");
-	}
+
 }
