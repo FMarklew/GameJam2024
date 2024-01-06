@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class AbilitySystem : MonoBehaviour
 {
-    public MainAbilitySO[] equippedAbilties;
+    public BaseAbilitySO[] equippedAbilties;
     public const int maxAbilities = 3;
     void Update()
     {
-        
+        // input
     }
 
-    public void EquipAbility()
+    public void EquipAbility(BaseAbilitySO ability)
 	{
         
 	}
