@@ -4,45 +4,71 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    public float maxHp => _maxHP;
-    public float currentHP => _currentHP;
+    private const float DETECTION_BASE = 3f;
 
-    [SerializeField] private float _maxHP = 100f;
-    [SerializeField] private float _currentHP = 100f;
-    [SerializeField] private float attackSpeed = 2f;
-    [SerializeField] private float range = 2f;
-    [SerializeField] private float detectionRadius = 5f;
-    [SerializeField] private float damage = 1f;
-    [SerializeField] EnemyMovement movement;
+    public int maxHealth => _maxHealth;
+    public int health => _health;
 
+    [SerializeField] protected int _maxHealth = 100;
+    [SerializeField] protected int _health = 100;
+    [SerializeField] protected float _attackSpeed = 2f;
+    [SerializeField] protected float _range = 2f;
+    [SerializeField] protected float _detectionRadius = 0f;
+    [SerializeField] protected float _moveSpeed = 3.5f;
+    [SerializeField] protected EnemyMovement _movement;
+    [SerializeField] protected BaseAbility _attackAbility;
+    [SerializeField] protected Transform _aimController;
+
+    private GameObject _player;
+        
     private bool _isAttacking;
+    private Coroutine _attackCoroutine = null;
 
-    private void OnEnable()
+    public virtual void Init(GameObject pPlayer)
+    {   
+        _player = pPlayer;
+    }
+
+    private void OnEnable() 
     {
-        _currentHP = _maxHP;
+        _health = _maxHealth;
 
-        if(movement == null)
+        if(_movement == null)
         {
-            movement = GetComponent<EnemyMovement>();
+            _movement = GetComponent<EnemyMovement>();
         }
-        Transform target = transform; // get player
-        movement.Init(range, detectionRadius, target);
 
-        movement.WhenInRange += StartAttacking;
-        movement.WhenFollow += StopAttacking;
+        if (_detectionRadius == 0f)
+        {
+            _detectionRadius = _range + DETECTION_BASE;
+        }
+
+        _player = GameObject.Find("Player");
+        Transform target = _player.transform; // get player
+        _movement.Init(_range, _detectionRadius, _moveSpeed, target);
+
+        _movement.WhenInRange += StartAttacking;
+        _movement.WhenFollow += StopAttacking;
     }
 
     private void OnDisable()
     {
-        movement.WhenInRange += StartAttacking;
-        movement.WhenFollow += StopAttacking;
+        _movement.WhenInRange -= StartAttacking;
+        _movement.WhenFollow -= StopAttacking;
     }
 
-    public virtual void TakeDamage(float pDamage)
+    private void Update()
     {
-        _currentHP -= pDamage;
+        Vector3 rotation = _player.transform.position - transform.position;
+        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        _aimController.rotation = Quaternion.Euler(0, 0, rotZ);
+    }
 
-        if(_currentHP <= 0)
+    public virtual void ReduceHealth(float pDamage)
+    {
+        _health -= pDamage;
+
+        if(_health <= 0)
         {
             Die();
         }
@@ -64,21 +90,28 @@ public class EnemyBase : MonoBehaviour
     {
         _isAttacking = true;
         Attack();
-        StopCoroutine(I_Attacking());
-        StartCoroutine(I_Attacking());
+        if(_attackCoroutine != null)
+        {
+            StopCoroutine(_attackCoroutine);
+        }
+        _attackCoroutine = StartCoroutine(I_Attacking());
     }
 
     private void StopAttacking()
     {
+        Debug.Log("following");
         _isAttacking = false;
-        StopCoroutine(I_Attacking());
+        if(_attackCoroutine != null)
+        {
+            StopCoroutine(_attackCoroutine);
+        }
     }
 
     private IEnumerator I_Attacking()
     {
         float time = 0f;
 
-        while (time <= attackSpeed)
+        while (time <= _attackSpeed)
         {
             yield return new WaitForEndOfFrame();
 
@@ -87,12 +120,15 @@ public class EnemyBase : MonoBehaviour
 
         if (_isAttacking)
         {
-            StartCoroutine(I_Attacking());
+            Attack();
+            _attackCoroutine = StartCoroutine(I_Attacking());
         }
     }
 
     public virtual void Attack()
     {
         Debug.Log("attack: " + _isAttacking);
+
+        _attackAbility.ActivateAbility(this.gameObject, _aimController);
     }
 }

@@ -11,36 +11,39 @@ public class EnemyMovement : MonoBehaviour
     public UnityAction WhenFollow;
     private NavMeshAgent _agent;
 
-    private float range;
-    private float detectionRadius;
+    private float _range;
+    private float _detectionRadius;
+    private float _moveSpeed;
     private bool _detectedPlayer;
     private bool _isInRange;
 
-    public void Init(float pRange, float pDetectionRadius, Transform pTarget)
+    public void Init(float pRange, float pDetectionRadius, float pMoveSpeed, Transform pTarget)
     {
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
 
 
-        range = pRange;
-        detectionRadius = pDetectionRadius;
+        _range = pRange;
+        _detectionRadius = pDetectionRadius;
         _target = pTarget;
+        _moveSpeed = pMoveSpeed;
 
-        _agent.stoppingDistance = range;
+        _agent.stoppingDistance = _range;
+        //_agent.speed = _moveSpeed;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
-        if ((_target.position - transform.position).magnitude <= detectionRadius || _detectedPlayer)
+        if ((_target.position - transform.position).magnitude <= _detectionRadius || _detectedPlayer)
         {
             _detectedPlayer = true;
-            if((_target.position - transform.position).magnitude <= range && !_isInRange)
+            if((_target.position - transform.position).magnitude <= _range && !_isInRange)
             {
                 _isInRange = true;
                 WhenInRange?.Invoke();
             }
-            else if((_target.position - transform.position).magnitude > range)
+            else if((_target.position - transform.position).magnitude > _range)
             {
                 _isInRange = false;
                 FollowPlayer();
