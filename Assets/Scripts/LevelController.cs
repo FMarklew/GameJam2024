@@ -13,6 +13,7 @@ public class LevelController : MonoBehaviour
 
     [SerializeField] private string _levelName;
     [SerializeField] private List<SpawnData> _spawns;
+    [SerializeField] private PortalTrigger _portal;
 
     private List<GameObject> _activeObjects = new List<GameObject>();
 
@@ -31,6 +32,23 @@ public class LevelController : MonoBehaviour
             go.SetActive(true);
 
             _activeObjects.Add(go);
+        }
+    }
+
+    public void CheckForLevelOver()
+    {
+        bool levelOver = true;
+        foreach (GameObject activeObject in _activeObjects)
+        {
+            if (activeObject != null)
+            {
+                levelOver = false;
+            }
+        }
+
+        if (levelOver)
+        {
+            _portal.gameObject.SetActive(true);
         }
     }
 

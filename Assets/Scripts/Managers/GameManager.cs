@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
         // level transition
     }
 
+    public void OnEnemyKilled()
+    {
+        _levels[_currentLevel].CheckForLevelOver();
+    }
+
     public void StartNextLevel()
     {
         _currentLevel++;

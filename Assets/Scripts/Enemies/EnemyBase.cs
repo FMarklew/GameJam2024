@@ -24,11 +24,6 @@ public class EnemyBase : MonoBehaviour
     private bool _isAttacking;
     private Coroutine _attackCoroutine = null;
 
-    public virtual void Init(GameObject pPlayer)
-    {   
-        _player = pPlayer;
-    }
-
     private void OnEnable() 
     {
         _health = _maxHealth;
@@ -43,8 +38,8 @@ public class EnemyBase : MonoBehaviour
             _detectionRadius = _range + DETECTION_BASE;
         }
 
-        _player = GameObject.Find("Player");
-        Transform target = _player.transform; // get player
+        _player = GameManager.Instance.player;
+        Transform target = _player.transform;
         _movement.Init(_range, _detectionRadius, _moveSpeed, target, this);
 
         _movement.WhenInRange += StartAttacking;
