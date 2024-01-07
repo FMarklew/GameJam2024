@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1703392024596367342}
   m_Layer: 0
-  m_Name: Weapons
+  m_Name: Equipment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,6 @@ GameObject:
   - component: {fileID: 300341871322840251}
   - component: {fileID: 6860673997262692662}
   - component: {fileID: 8342933511951447021}
-  - component: {fileID: 7196035235382914359}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -110,22 +109,6 @@ MonoBehaviour:
     _requiredTags: 02000000
     activeAbility: {fileID: 0}
   aimController: {fileID: 1298064334537341472}
---- !u!114 &7196035235382914359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1702442278058352398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0c5532f063f08b4797e104a2f62381b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
-  damageMultiplier: 1
-  lifesteal: 0
 --- !u!1 &2466804888459631775
 GameObject:
   m_ObjectHideFlags: 0
