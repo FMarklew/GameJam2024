@@ -16,8 +16,9 @@ public class EnemyMovement : MonoBehaviour
     private float _moveSpeed;
     private bool _detectedPlayer;
     private bool _isInRange;
+    private EnemyBase _enemy;
 
-    public void Init(float pRange, float pDetectionRadius, float pMoveSpeed, Transform pTarget)
+    public void Init(float pRange, float pDetectionRadius, float pMoveSpeed, Transform pTarget, EnemyBase pEnemy)
     {
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
@@ -28,14 +29,15 @@ public class EnemyMovement : MonoBehaviour
         _detectionRadius = pDetectionRadius;
         _target = pTarget;
         _moveSpeed = pMoveSpeed;
+        _enemy = pEnemy;
 
         _agent.stoppingDistance = _range;
         //_agent.speed = _moveSpeed;
     }
 
-    private void LateUpdate()
+    private void Update()
     {
-        if ((_target.position - transform.position).magnitude <= _detectionRadius || _detectedPlayer)
+        if ((_target.position - transform.position).magnitude <= _detectionRadius || _detectedPlayer || _enemy.health < _enemy.maxHealth)
         {
             _detectedPlayer = true;
             if((_target.position - transform.position).magnitude <= _range && !_isInRange)

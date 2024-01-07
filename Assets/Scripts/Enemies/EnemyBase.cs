@@ -45,7 +45,7 @@ public class EnemyBase : MonoBehaviour
 
         _player = GameObject.Find("Player");
         Transform target = _player.transform; // get player
-        _movement.Init(_range, _detectionRadius, _moveSpeed, target);
+        _movement.Init(_range, _detectionRadius, _moveSpeed, target, this);
 
         _movement.WhenInRange += StartAttacking;
         _movement.WhenFollow += StopAttacking;

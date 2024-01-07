@@ -22,11 +22,23 @@ public class GameManager : MonoBehaviour
 
         Application.targetFrameRate = 60;
 
-        //_levels[_currentLevel].StartLevel();
+        _levels[_currentLevel].StartLevel();
     }
 
     public void OnLevelComplete()
     {
+        // level transition
+    }
 
+    public void StartNextLevel()
+    {
+        _currentLevel++;
+
+        if(_currentLevel >= _levels.Count)
+        {
+            _currentLevel = 0;
+        }
+
+        _levels[_currentLevel].StartLevel();
     }
 }

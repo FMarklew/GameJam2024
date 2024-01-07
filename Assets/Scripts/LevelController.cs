@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
-    [SerializeField]
+    [System.Serializable]
     public class SpawnData
     {
         public Transform _spawnTransform;
@@ -14,7 +14,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] private string _levelName;
     [SerializeField] private List<SpawnData> _spawns;
 
-    private List<GameObject> _activeObjects;
+    private List<GameObject> _activeObjects = new List<GameObject>();
 
     public void StartLevel()
     {
