@@ -64,7 +64,7 @@ public class EnemyBase : MonoBehaviour
         _aimController.rotation = Quaternion.Euler(0, 0, rotZ);
     }
 
-    public virtual void ReduceHealth(float pDamage)
+    public virtual void ReduceHealth(int pDamage)
     {
         _health -= pDamage;
 
