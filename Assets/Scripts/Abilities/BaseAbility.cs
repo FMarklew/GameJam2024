@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public abstract class BaseAbility : MonoBehaviour
 {
+	public string abilityName;
 	public bool hasCooldown = true;
 	public float cooldown = 1f;
 	public float castingTime = 0f;
@@ -13,6 +14,9 @@ public abstract class BaseAbility : MonoBehaviour
 	public float castOffset;
 
 	public float visualDuration = 0.2f;
+
+	public PlayerMoveSpeedTiers.PlayerMoveSpeedTier moveSpeedTierWhenEquipped =
+		PlayerMoveSpeedTiers.PlayerMoveSpeedTier.NORMAL;
 
 	public List<AbilityTags> abilityTags = new List<AbilityTags>();
 	public virtual void ActivateAbility(GameObject caster, Transform targetTransform)

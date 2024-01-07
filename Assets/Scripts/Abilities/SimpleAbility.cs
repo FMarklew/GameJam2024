@@ -2,20 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleAbility : BaseAbility
+public partial class SimpleAbility : BaseAbility
 {
-	public bool hasLifesteal = false;
-	public int damage = 10;
-
+	public bool canLifesteal = false;
+	public int currentWeaponTier = 0;
 	public Vector2 hitboxScale;
 	public LayerMask targetLayers;
 
+	public int baseDamage;
+	public int damageGrowth;
 	private void OnEnable()
 	{
 		Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, hitboxScale, transform.rotation.z, targetLayers);
 		foreach(Collider2D col in colliders)
 		{
 			Debug.Log(col.gameObject.name);
+			//deal damage with current weapon tier
 		}
 	}
 
@@ -30,6 +32,5 @@ public class SimpleAbility : BaseAbility
 
 		// Reset the Gizmos.matrix to avoid affecting other Gizmos draws
 		Gizmos.matrix = Matrix4x4.identity;
-
 	}
 }

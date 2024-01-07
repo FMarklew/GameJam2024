@@ -10,6 +10,8 @@ public class AbilitySystem : MonoBehaviour
     private Camera cam;
 
     public AimController aimController;
+
+    private float nextAbilityUnlock = 0f;
 	private void Start()
 	{
         cam = Camera.main;
@@ -17,15 +19,15 @@ public class AbilitySystem : MonoBehaviour
 
 	void Update()
     {
-		if (Input.GetButtonUp("Fire1"))
+		if (Input.GetButtonUp("Fire1") && !GetIsAbilityLocked())
 		{
-            ActivateAbility(abilitySlot_1);
+            ActivateAbility(abilitySlot_1 );
         }
-        if(Input.GetButtonUp("Fire2"))
+        if(Input.GetButtonUp("Fire2") && !GetIsAbilityLocked())
 		{
             ActivateAbility(abilitySlot_2);
         }
-		if (Input.GetButtonUp("Fire3"))
+		if (Input.GetButtonUp("Fire3") && !GetIsAbilityLocked())
 		{
             ActivateAbility(abilitySlot_3);
         }
@@ -46,7 +48,9 @@ public class AbilitySystem : MonoBehaviour
 	{
         if (slot.activeAbility != null)
         {
+            Debug.Log("Activating");
             slot.activeAbility.ActivateAbility(gameObject, aimController.transform);
+            nextAbilityUnlock = Time.time + slot.activeAbility.castingTime;
             StartCoroutine(I_Cooldown(slot));
         }
 	}
@@ -63,4 +67,9 @@ public class AbilitySystem : MonoBehaviour
         }
         slot.activeAbility.isOnCooldown = false;
     }
+
+    private bool GetIsAbilityLocked()
+	{
+        return nextAbilityUnlock > Time.time;
+	}
 }
