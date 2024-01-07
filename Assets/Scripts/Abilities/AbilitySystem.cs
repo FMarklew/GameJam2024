@@ -63,12 +63,4 @@ public class AbilitySystem : MonoBehaviour
         }
         slot.activeAbility.isOnCooldown = false;
     }
-
-
-    public BaseAbility testAbility;
-    [ContextMenu("Test Func")]
-    public void Test()
-    {
-        EquipAbility(abilitySlot_1, testAbility);
-    }
 }
