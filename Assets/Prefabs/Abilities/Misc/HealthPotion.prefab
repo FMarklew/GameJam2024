@@ -44,24 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7712011a565fbe14da485c5ef81f32f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: HealthPotion
-  hasCooldown: 1
-  cooldown: 1
-  castingTime: 0
   isOnCooldown: 0
-  castOffset: 0
-  spritePrefab: {fileID: 0}
-  visualDuration: 0.2
-  moveSpeedTierWhenEquipped: 1
-  abilityTags: 02000000
+  abilityConfig: {fileID: 11400000, guid: 82950962a2b180b4996988d42fdf9b28, type: 2}
   playerStats: {fileID: 11400000, guid: 95c1039bdadd79d4f90dd5a21173ad85, type: 2}
   potionEffect: 0
-  potionTiers:
-  - affectorAmt: 25
-    affectorDuration: 0
-  - affectorAmt: 50
-    affectorDuration: 0
-  - affectorAmt: 100
-    affectorDuration: 0
   currentTier: 0
   particlePrefab: {fileID: 0}

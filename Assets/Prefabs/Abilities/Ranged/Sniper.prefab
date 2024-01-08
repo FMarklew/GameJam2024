@@ -44,19 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc1384d14693c443b5dbcd916ea23c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: Sniper
-  hasCooldown: 1
-  cooldown: 1
-  castingTime: 0.8
   isOnCooldown: 0
-  castOffset: 0.6
-  spritePrefab: {fileID: 0}
-  visualDuration: 0.2
-  moveSpeedTierWhenEquipped: 0
-  abilityTags: 01000000
-  projectilePrefab: {fileID: 6050332812162689831, guid: 355c351283772c843978091581400f8f, type: 3}
+  abilityConfig: {fileID: 11400000, guid: a12366768f2c7d1498b26ff7d41b9ff1, type: 2}
+  currentTier: 0
   launchVelocity: 1500
   numProjectiles: 1
   delayBetweenShots: 0
-  damage: 50
-  growth: 0
+  damage: 0

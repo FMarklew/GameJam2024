@@ -33,9 +33,9 @@ public class AbilitySystem : MonoBehaviour
         }
     }
 
-    public void EquipAbility(AbilitySlot slot, BaseAbility ability)
+    public void EquipAbility(AbilitySlot slot, BaseAbility ability, int tier)
     {
-		if (!slot.EquipAbilityInSlot(ability))
+		if (!slot.EquipAbilityInSlot(ability, tier))
 		{
             Debug.Log("Failed");
 		} else
@@ -50,10 +50,9 @@ public class AbilitySystem : MonoBehaviour
         {
             Debug.Log("Activating");
             slot.activeAbility.ActivateAbility(gameObject, aimController.transform);
-            nextAbilityUnlock = Time.time + slot.activeAbility.castingTime;
+            nextAbilityUnlock = Time.time + slot.activeAbility.abilityConfig.castingTime;
         }
 	}
-
 
     private bool GetIsAbilityLocked()
 	{

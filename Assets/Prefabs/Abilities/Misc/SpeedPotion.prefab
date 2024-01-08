@@ -44,24 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7712011a565fbe14da485c5ef81f32f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: SpeedPotion
-  hasCooldown: 1
-  cooldown: 1
-  castingTime: 0
   isOnCooldown: 0
-  castOffset: 0
-  spritePrefab: {fileID: 0}
-  visualDuration: 0.2
-  moveSpeedTierWhenEquipped: 1
-  abilityTags: 02000000
-  playerStats: {fileID: 11400000, guid: 95c1039bdadd79d4f90dd5a21173ad85, type: 2}
-  potionEffect: 2
-  potionTiers:
-  - affectorAmt: 0.03
-    affectorDuration: 2
-  - affectorAmt: 0.05
-    affectorDuration: 3
-  - affectorAmt: 0.07
-    affectorDuration: 4
+  abilityConfig: {fileID: 11400000, guid: e5d5752089de7d9468b00da0569974c0, type: 2}
   currentTier: 0
-  particlePrefab: {fileID: 0}
+  playerStats: {fileID: 11400000, guid: 95c1039bdadd79d4f90dd5a21173ad85, type: 2}

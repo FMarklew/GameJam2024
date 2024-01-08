@@ -4,13 +4,23 @@ using UnityEngine;
 
 public partial class SimpleAbility : BaseAbility
 {
-	public bool canLifesteal = false;
-	public int currentWeaponTier = 0;
 	public Vector2 hitboxScale;
 	public LayerMask targetLayers;
 
-	public int baseDamage;
-	public int damageGrowth;
+	public int damage;
+	private void Awake()
+	{
+		Init(currentTier);
+	}
+
+	public override void Init(int weaponTier)
+	{
+		WeaponTierInfo tierInfo = (abilityConfig as WeaponAbilityConfig).weaponTierInfos[weaponTier];
+		currentTier = weaponTier;
+		_cooldown = tierInfo.cooldown;
+		_castingTime = tierInfo.castTime;
+		damage = tierInfo.damage;
+	}
 
 	public override void OnAbilityActivate(GameObject caster, Transform targetTransform, Vector3 position)
 	{
@@ -38,6 +48,6 @@ public partial class SimpleAbility : BaseAbility
 
 	public int GetCurrentDamage()
 	{
-		return baseDamage + (currentWeaponTier * damageGrowth);
+		return damage;
 	}
 }

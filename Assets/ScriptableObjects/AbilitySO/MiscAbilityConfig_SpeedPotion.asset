@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13dab264b511074fa6615acf14f599e, type: 3}
+  m_Name: MiscAbilityConfig_SpeedPotion
+  m_EditorClassIdentifier: 
+  abilityName: Speed Potion
+  abilityTags: 02000000
+  vfxPrefab: {fileID: 0}
+  vfxDuration: 0.2
+  castOffset: 0
+  displaySprite: {fileID: 21300000, guid: c51b43fbb9f5cba4b8b5f0edbddbe134, type: 3}
+  hasCooldown: 1
+  cooldown: 15
+  castingTime: 2.5
+  moveSpeedTierWhenEquipped: 1
+  potionEffect: 2
+  miscItemTiers:
+  - affectorAmt: 0.02
+    affectorDuration: 2
+    cooldown: 15
+  - affectorAmt: 0.05
+    affectorDuration: 3
+    cooldown: 12
+  - affectorAmt: 0.08
+    affectorDuration: 4
+    cooldown: 9

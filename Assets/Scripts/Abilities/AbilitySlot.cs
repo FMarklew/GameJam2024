@@ -12,11 +12,11 @@ public class AbilitySlot
         _requiredTags = requiredTags;
 	}
 
-    public bool EquipAbilityInSlot(BaseAbility ability)
+    public bool EquipAbilityInSlot(BaseAbility ability, int tier)
 	{
         bool equippedSuccess = false;
         List<AbilityTags> requiredTagsCopy = new List<AbilityTags>(_requiredTags);
-        foreach(AbilityTags abilityTag in ability.abilityTags)
+        foreach(AbilityTags abilityTag in ability.abilityConfig.abilityTags)
 		{
 			if (_requiredTags.Contains(abilityTag))
 			{
@@ -27,6 +27,7 @@ public class AbilitySlot
 		{
             equippedSuccess = true;
 			activeAbility = ability;
+			activeAbility.Init(tier);
 		}
         return equippedSuccess;
 	}

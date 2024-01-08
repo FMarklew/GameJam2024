@@ -44,23 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc1384d14693c443b5dbcd916ea23c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: Gun
-  hasCooldown: 1
-  cooldown: 1
-  castingTime: 0.3
   isOnCooldown: 0
-  castOffset: 0.4
-  spritePrefab: {fileID: 0}
-  visualDuration: 0.2
-  moveSpeedTierWhenEquipped: 1
-  abilityTags: 
-  projectilePrefab: {fileID: 6050332812162689831, guid: 3871080ae3fa740a58624ed9f872203d, type: 3}
+  abilityConfig: {fileID: 11400000, guid: 83c593bd3c3c7df4fabefe753b7f053d, type: 2}
+  currentTier: 0
   launchVelocity: 350
   numProjectiles: 1
   delayBetweenShots: 0.15
-  baseDamage: 10
-  damageGrowth: 0
-  currentWeaponTier: 0
+  damage: 0
 --- !u!1 &3977635924939117301
 GameObject:
   m_ObjectHideFlags: 0

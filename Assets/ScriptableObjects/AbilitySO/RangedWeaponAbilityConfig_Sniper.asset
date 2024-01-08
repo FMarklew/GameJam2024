@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1315c390b3b7240bb43167862cca52, type: 3}
+  m_Name: RangedWeaponAbilityConfig_Sniper
+  m_EditorClassIdentifier: 
+  abilityName: Sniper
+  abilityTags: 01000000
+  vfxPrefab: {fileID: 0}
+  vfxDuration: 0.2
+  castOffset: 1
+  displaySprite: {fileID: 21300000, guid: eff087bc0ab931d42ab45cf1763eaafa, type: 3}
+  hasCooldown: 1
+  cooldown: 1
+  castingTime: 0.5
+  moveSpeedTierWhenEquipped: 1
+  weaponTierInfos:
+  - damage: 40
+    cooldown: 2
+    castTime: 1.4
+  - damage: 70
+    cooldown: 1.8
+    castTime: 1.4
+  - damage: 100
+    cooldown: 1.6
+    castTime: 1.4
+  bulletPrefab: {fileID: 6050332812162689831, guid: 355c351283772c843978091581400f8f, type: 3}

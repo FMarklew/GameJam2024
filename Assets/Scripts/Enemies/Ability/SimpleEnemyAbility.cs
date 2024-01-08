@@ -13,6 +13,11 @@ public partial class SimpleEnemyAbility : BaseAbility
 	public int baseDamage;
 	public int damageGrowth;
 
+	public override void Init(int tier)
+	{
+		// initialize enemy ability here
+	}
+
 	public override void OnAbilityActivate(GameObject caster, Transform targetTransform, Vector3 position)
 	{
 		Collider2D[] colliders = Physics2D.OverlapBoxAll(position, hitboxScale, targetTransform.rotation.z, targetLayers);
@@ -41,4 +46,5 @@ public partial class SimpleEnemyAbility : BaseAbility
 	{
 		return baseDamage + (currentWeaponTier * damageGrowth);
 	}
+
 }

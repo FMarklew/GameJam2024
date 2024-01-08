@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b74edcdbaa6dfb740bc24550f6c51cc8, type: 3}
+  m_Name: WeaponAbilityConfig_Flamethrower
+  m_EditorClassIdentifier: 
+  abilityName: Flamethrower
+  abilityTags: 01000000
+  vfxPrefab: {fileID: 500013953840978687, guid: 4d22ad3d270b922489db0be63ed64661, type: 3}
+  vfxDuration: 0.2
+  castOffset: 1.5
+  displaySprite: {fileID: 21300000, guid: 9ae875ae43d7858449eb3604b2ea0108, type: 3}
+  hasCooldown: 1
+  cooldown: 2
+  castingTime: 0.15
+  moveSpeedTierWhenEquipped: 0
+  weaponTierInfos:
+  - damage: 7
+    cooldown: 2
+    castTime: 0.15
+  - damage: 10
+    cooldown: 1.9
+    castTime: 0.15
+  - damage: 13
+    cooldown: 1.8
+    castTime: 0.15

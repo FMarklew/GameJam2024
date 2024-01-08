@@ -5,18 +5,27 @@ using System.Linq;
 
 public class BaseRangedAbility : BaseAbility
 {
-	public GameObject projectilePrefab;
 	public float launchVelocity = 1f;
 
 	public int numProjectiles = 3;
 	public float delayBetweenShots = 0.15f;
 
-	public int baseDamage = 10;
-	public int damageGrowth = 0;
-
-	public int currentWeaponTier;
-
 	protected List<Projectile> projectileList = new List<Projectile>();
+
+	public int damage;
+	private void Awake()
+	{
+		Init(currentTier);
+	}
+
+	public override void Init(int weaponTier)
+	{
+		WeaponTierInfo tierInfo = (abilityConfig as WeaponAbilityConfig).weaponTierInfos[weaponTier];
+		currentTier = weaponTier;
+		_cooldown = tierInfo.cooldown;
+		_castingTime = tierInfo.castTime;
+		damage = tierInfo.damage;
+	}
 
 	public override void OnAbilityActivate(GameObject caster, Transform targetTransform, Vector3 position)
 	{
@@ -25,18 +34,19 @@ public class BaseRangedAbility : BaseAbility
 
 	IEnumerator ShootAll(GameObject caster, Transform targetTransform, Vector3 position)
 	{
+		RangedWeaponAbilityConfig config = abilityConfig as RangedWeaponAbilityConfig;
 		for (int i = 0; i < numProjectiles; i++)
 		{
 			Quaternion rotVal = targetTransform.rotation;
 			Projectile p = projectileList.Find(x => !x.gameObject.activeInHierarchy);
 			if (p == null)
 			{
-				var go = Instantiate(projectilePrefab, position, rotVal);
+				var go = Instantiate(config.bulletPrefab, position, rotVal);
 				p = go.GetComponent<Projectile>();
 				projectileList.Add(p);
 			}
 			Vector2 targetVel = targetTransform.right.normalized * launchVelocity;
-			p.Init(baseDamage, position, rotVal);
+			p.Init(GetCurrentDamage(), position, rotVal);
 			p.FireProjectile(targetVel);
 			yield return new WaitForSeconds(delayBetweenShots);
 		}
@@ -44,6 +54,6 @@ public class BaseRangedAbility : BaseAbility
 
 	public int GetCurrentDamage()
 	{
-		return baseDamage + (currentWeaponTier * damageGrowth);
+		return damage;
 	}
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1703392024596367342}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EquipmentLogic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,9 +52,8 @@ GameObject:
   - component: {fileID: 6860673997262692662}
   - component: {fileID: 8342933511951447021}
   - component: {fileID: 706879956938395987}
-  - component: {fileID: 826679562609674664}
-  - component: {fileID: 3547632148549952182}
-  m_Layer: 0
+  - component: {fileID: 7527703928120779462}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +113,7 @@ MonoBehaviour:
     activeAbility: {fileID: 0}
   abilitySlot_3:
     _requiredTags: 02000000
-    activeAbility: {fileID: 7330785776109162752}
+    activeAbility: {fileID: 7534190385897654797}
   aimController: {fileID: 1298064334537341472}
 --- !u!58 &706879956938395987
 CircleCollider2D:
@@ -151,42 +150,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!58 &826679562609674664
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1702442278058352398}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!50 &3547632148549952182
+--- !u!50 &7527703928120779462
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -223,8 +187,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3321664407035459377}
   - component: {fileID: 1792659515096254579}
-  m_Layer: 0
-  m_Name: Circle
+  m_Layer: 7
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -307,7 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4535873788147820137}
   - component: {fileID: 6864769914442287242}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2098130272909708319}
   - component: {fileID: 1298064334537341472}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AimRotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,6 +446,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dagger
       objectReference: {fileID: 0}
+    - target: {fileID: 6918232886849164808, guid: 85287641bef9167429c292fda7fb6224, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -503,6 +471,10 @@ PrefabInstance:
     - target: {fileID: 1443791219452881985, guid: ab8600ebd3eebd945bbdbef7b38cbef8, type: 3}
       propertyPath: m_Name
       value: Flamethrower
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443791219452881985, guid: ab8600ebd3eebd945bbdbef7b38cbef8, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2031870441127379887, guid: ab8600ebd3eebd945bbdbef7b38cbef8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -610,6 +582,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hammer
       objectReference: {fileID: 0}
+    - target: {fileID: 6918232886849164808, guid: 58cedc15a7981c84288e19d1d7f86a47, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7426823012013472161, guid: 58cedc15a7981c84288e19d1d7f86a47, type: 3}
       propertyPath: hitboxScale.x
       value: 3
@@ -639,6 +615,10 @@ PrefabInstance:
     - target: {fileID: 1443791219452881985, guid: ed8b3aa8cad66d5418ab5b3ad1626c91, type: 3}
       propertyPath: m_Name
       value: DamageReductionPotion
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443791219452881985, guid: ed8b3aa8cad66d5418ab5b3ad1626c91, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2031870441127379887, guid: ed8b3aa8cad66d5418ab5b3ad1626c91, type: 3}
       propertyPath: m_LocalPosition.x
@@ -702,6 +682,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun
       objectReference: {fileID: 0}
+    - target: {fileID: 1443791219452881985, guid: 309a1982c1748f34c8ae779a9e3780e1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2031870441127379887, guid: 309a1982c1748f34c8ae779a9e3780e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -746,44 +730,8 @@ PrefabInstance:
     - {fileID: 1369595901028482819, guid: 309a1982c1748f34c8ae779a9e3780e1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1443791219452881985, guid: 309a1982c1748f34c8ae779a9e3780e1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 809247956947003887}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 309a1982c1748f34c8ae779a9e3780e1, type: 3}
---- !u!1 &4739942522987838742 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1443791219452881985, guid: 309a1982c1748f34c8ae779a9e3780e1, type: 3}
-  m_PrefabInstance: {fileID: 6183100247638823255}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &809247956947003887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4739942522987838742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfc1384d14693c443b5dbcd916ea23c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilityName: Gun
-  hasCooldown: 1
-  cooldown: 1
-  castingTime: 0.3
-  isOnCooldown: 0
-  castOffset: 0.4
-  spritePrefab: {fileID: 0}
-  visualDuration: 0.2
-  moveSpeedTierWhenEquipped: 1
-  abilityTags: 
-  projectilePrefab: {fileID: 6050332812162689831, guid: 670f842ccab4b83488b717dee1a18122, type: 3}
-  launchVelocity: 350
-  numProjectiles: 3
-  delayBetweenShots: 0.15
-  damage: 10
-  growth: 0
 --- !u!4 &5331258709444645624 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2031870441127379887, guid: 309a1982c1748f34c8ae779a9e3780e1, type: 3}
@@ -800,6 +748,10 @@ PrefabInstance:
     - target: {fileID: 1443791219452881985, guid: 4973850d1cebc864e942dc12e6e2c168, type: 3}
       propertyPath: m_Name
       value: Sniper
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443791219452881985, guid: 4973850d1cebc864e942dc12e6e2c168, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2031870441127379887, guid: 4973850d1cebc864e942dc12e6e2c168, type: 3}
       propertyPath: m_LocalScale.x
@@ -886,6 +838,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword
       objectReference: {fileID: 0}
+    - target: {fileID: 1443791219452881985, guid: 5118bb1f18e06a248b6138b0e36eab83, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2031870441127379887, guid: 5118bb1f18e06a248b6138b0e36eab83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -952,6 +908,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPotion
       objectReference: {fileID: 0}
+    - target: {fileID: 1443791219452881985, guid: 806f69f311415394587258da9e4dd4ec, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2031870441127379887, guid: 806f69f311415394587258da9e4dd4ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.13
@@ -997,17 +957,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 806f69f311415394587258da9e4dd4ec, type: 3}
---- !u!114 &7330785776109162752 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1257085423861128326, guid: 806f69f311415394587258da9e4dd4ec, type: 3}
-  m_PrefabInstance: {fileID: 8416733313643400582}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7712011a565fbe14da485c5ef81f32f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &7565089958158585385 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2031870441127379887, guid: 806f69f311415394587258da9e4dd4ec, type: 3}
@@ -1024,6 +973,10 @@ PrefabInstance:
     - target: {fileID: 1443791219452881985, guid: 7ff15caffa2ebba489ceb4df5e5ff0a9, type: 3}
       propertyPath: m_Name
       value: HealthPotion
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443791219452881985, guid: 7ff15caffa2ebba489ceb4df5e5ff0a9, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2031870441127379887, guid: 7ff15caffa2ebba489ceb4df5e5ff0a9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1075,3 +1028,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2031870441127379887, guid: 7ff15caffa2ebba489ceb4df5e5ff0a9, type: 3}
   m_PrefabInstance: {fileID: 8790114653889336971}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7534190385897654797 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1257085423861128326, guid: 7ff15caffa2ebba489ceb4df5e5ff0a9, type: 3}
+  m_PrefabInstance: {fileID: 8790114653889336971}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7712011a565fbe14da485c5ef81f32f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

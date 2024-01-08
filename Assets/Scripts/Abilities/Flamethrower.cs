@@ -26,6 +26,5 @@ public class Flamethrower : SimpleAbility
 			}
 			yield return new WaitForSeconds(delayBetweenChecks);
 		}
-		
 	}
 }

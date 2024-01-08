@@ -5,27 +5,19 @@ using UnityEngine.Events;
 
 public abstract class BaseAbility : MonoBehaviour
 {
-	public string abilityName;
-
-	public bool hasCooldown = true;
-	public float cooldown = 1f;
-	public float castingTime = 0f;
-
 	public bool isOnCooldown = false;
-	public float castOffset;
 
-	public GameObject spritePrefab;
-	public float visualDuration = 0.2f;
-
-	public PlayerMoveSpeedTiers.PlayerMoveSpeedTier moveSpeedTierWhenEquipped =
-		PlayerMoveSpeedTiers.PlayerMoveSpeedTier.NORMAL;
-
-	public List<AbilityTags> abilityTags = new List<AbilityTags>();
+	public AbilityConfig abilityConfig;
 
 	private Coroutine activeCast = null;
 	private Coroutine cooldownRoutine = null;
 
 	protected List<GameObject> activeSprites = new List<GameObject>();
+
+	public int currentTier;
+	protected float _cooldown;
+	protected float _castingTime;
+	public abstract void Init(int tier);
 	public void ActivateAbility(GameObject caster, Transform targetTransform)
 	{
 		if (!isOnCooldown)
@@ -38,15 +30,15 @@ public abstract class BaseAbility : MonoBehaviour
 
 	IEnumerator I_WaitCast(GameObject caster, Transform targetTransform)
 	{
-		yield return new WaitForSeconds(castingTime);
+		yield return new WaitForSeconds(abilityConfig.castingTime);
 
-		var modifiedPos = caster.transform.position + castOffset * targetTransform.right.normalized;
+		var modifiedPos = caster.transform.position + abilityConfig.castOffset * targetTransform.right.normalized;
 
 		// visual
 		GameObject go = null;
-		if (spritePrefab != null)
+		if (abilityConfig.vfxPrefab != null)
 		{
-			go = Instantiate(spritePrefab, modifiedPos, targetTransform.rotation);
+			go = Instantiate(abilityConfig.vfxPrefab, modifiedPos, targetTransform.rotation);
 			go.SetActive(true);
 			activeSprites.Add(go);
 		}
@@ -62,7 +54,7 @@ public abstract class BaseAbility : MonoBehaviour
 	private IEnumerator I_Cooldown()
 	{
 		float t = 0f;
-		while (t < cooldown)
+		while (t < abilityConfig.cooldown)
 		{
 			yield return new WaitForEndOfFrame();
 			t += Time.deltaTime;
@@ -72,7 +64,7 @@ public abstract class BaseAbility : MonoBehaviour
 	}
 	IEnumerator I_DestroyAfterSeconds(GameObject sprite)
 	{
-		yield return new WaitForSeconds(visualDuration);
+		yield return new WaitForSeconds(abilityConfig.vfxDuration);
 		activeSprites.Remove(sprite);
 		Destroy(sprite);
 	}

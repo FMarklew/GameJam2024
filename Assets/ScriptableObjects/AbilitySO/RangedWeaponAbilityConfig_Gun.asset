@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1315c390b3b7240bb43167862cca52, type: 3}
+  m_Name: RangedWeaponAbilityConfig_Gun
+  m_EditorClassIdentifier: 
+  abilityName: Gun
+  abilityTags: 01000000
+  vfxPrefab: {fileID: 0}
+  vfxDuration: 0.2
+  castOffset: 1
+  displaySprite: {fileID: 21300000, guid: aee6065b734deec40b6f011033994c37, type: 3}
+  hasCooldown: 1
+  cooldown: 1
+  castingTime: 0.5
+  moveSpeedTierWhenEquipped: 1
+  weaponTierInfos:
+  - damage: 5
+    cooldown: 1
+    castTime: 0.25
+  - damage: 10
+    cooldown: 0.9
+    castTime: 0.25
+  - damage: 15
+    cooldown: 0.8
+    castTime: 0.25
+  bulletPrefab: {fileID: 6050332812162689831, guid: 670f842ccab4b83488b717dee1a18122, type: 3}

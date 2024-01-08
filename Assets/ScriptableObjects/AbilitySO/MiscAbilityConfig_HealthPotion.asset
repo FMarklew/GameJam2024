@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13dab264b511074fa6615acf14f599e, type: 3}
+  m_Name: MiscAbilityConfig_HealthPotion
+  m_EditorClassIdentifier: 
+  abilityName: Health Potion
+  abilityTags: 02000000
+  vfxPrefab: {fileID: 0}
+  vfxDuration: 0.2
+  castOffset: 0
+  displaySprite: {fileID: 21300000, guid: 95b9b814a9c12de4da4ee97f36e563bf, type: 3}
+  hasCooldown: 1
+  cooldown: 15
+  castingTime: 2.5
+  moveSpeedTierWhenEquipped: 0
+  potionEffect: 0
+  miscItemTiers:
+  - affectorAmt: 25
+    affectorDuration: 0
+    cooldown: 15
+  - affectorAmt: 50
+    affectorDuration: 0
+    cooldown: 12
+  - affectorAmt: 100
+    affectorDuration: 0
+    cooldown: 9
