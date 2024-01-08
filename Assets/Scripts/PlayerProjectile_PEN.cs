@@ -6,9 +6,9 @@ public class PlayerProjectile_PEN : Projectile
 {
 	private List<GameObject> alreadyHitEnemies = new List<GameObject>();
 
-	public override void Init(int damage, Vector3 pos)
+	public override void Init(int damage, Vector3 pos, Quaternion rot)
 	{
-		base.Init(damage, pos);
+		base.Init(damage, pos, rot);
 		alreadyHitEnemies = new List<GameObject>();
 	}
 	protected override void CauseDamage(GameObject go)

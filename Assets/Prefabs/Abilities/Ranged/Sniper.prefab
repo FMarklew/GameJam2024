@@ -58,5 +58,5 @@ MonoBehaviour:
   launchVelocity: 1500
   numProjectiles: 1
   delayBetweenShots: 0
-  damage: 40
+  damage: 50
   growth: 0

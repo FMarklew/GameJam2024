@@ -23,17 +23,20 @@ public abstract class BaseAbility : MonoBehaviour
 	public List<AbilityTags> abilityTags = new List<AbilityTags>();
 
 	private Coroutine activeCast = null;
+	private Coroutine cooldownRoutine = null;
 
 	protected List<GameObject> activeSprites = new List<GameObject>();
 	public void ActivateAbility(GameObject caster, Transform targetTransform)
 	{
 		if (!isOnCooldown)
 		{
-			activeCast = StartCoroutine(WaitCast(caster, targetTransform));
+			isOnCooldown = true;
+			activeCast = StartCoroutine(I_WaitCast(caster, targetTransform));
+			cooldownRoutine = StartCoroutine(I_Cooldown());
 		}
 	}
 
-	IEnumerator WaitCast(GameObject caster, Transform targetTransform)
+	IEnumerator I_WaitCast(GameObject caster, Transform targetTransform)
 	{
 		yield return new WaitForSeconds(castingTime);
 
@@ -48,7 +51,7 @@ public abstract class BaseAbility : MonoBehaviour
 			activeSprites.Add(go);
 		}
 
-		StartCoroutine(DestroyAfterSeconds(go));
+		StartCoroutine(I_DestroyAfterSeconds(go));
 
 		// logic
 
@@ -56,7 +59,18 @@ public abstract class BaseAbility : MonoBehaviour
 		activeCast = null;
 	}
 
-	IEnumerator DestroyAfterSeconds(GameObject sprite)
+	private IEnumerator I_Cooldown()
+	{
+		float t = 0f;
+		while (t < cooldown)
+		{
+			yield return new WaitForEndOfFrame();
+			t += Time.deltaTime;
+		}
+		isOnCooldown = false;
+		cooldownRoutine = null;
+	}
+	IEnumerator I_DestroyAfterSeconds(GameObject sprite)
 	{
 		yield return new WaitForSeconds(visualDuration);
 		activeSprites.Remove(sprite);

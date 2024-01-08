@@ -23,17 +23,19 @@ public class BaseRangedAbility : BaseAbility
 
 	IEnumerator ShootAll(GameObject caster, Transform targetTransform, Vector3 position)
 	{
+		
 		for (int i = 0; i < numProjectiles; i++)
 		{
+			Quaternion rotVal = targetTransform.rotation;
 			Projectile p = projectileList.Find(x => !x.gameObject.activeInHierarchy);
 			if (p == null)
 			{
-				var go = Instantiate(projectilePrefab, position, targetTransform.rotation);
+				var go = Instantiate(projectilePrefab, position, rotVal);
 				p = go.GetComponent<Projectile>();
 				projectileList.Add(p);
 			}
-			Vector2 targetVel = (position - caster.transform.position).normalized * launchVelocity;
-			p.Init(damage, position);
+			Vector2 targetVel = targetTransform.right.normalized * launchVelocity;
+			p.Init(damage, position, rotVal);
 			p.FireProjectile(targetVel);
 			yield return new WaitForSeconds(delayBetweenShots);
 		}

@@ -18,10 +18,11 @@ public abstract class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public virtual void Init(int damage, Vector3 pos)
+    public virtual void Init(int damage, Vector3 pos, Quaternion rot)
 	{
         _damage = damage;
 		transform.position = pos;
+		transform.rotation = rot;
 		rb.velocity = Vector3.zero;
 	}
 

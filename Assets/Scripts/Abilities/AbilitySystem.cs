@@ -51,22 +51,9 @@ public class AbilitySystem : MonoBehaviour
             Debug.Log("Activating");
             slot.activeAbility.ActivateAbility(gameObject, aimController.transform);
             nextAbilityUnlock = Time.time + slot.activeAbility.castingTime;
-            StartCoroutine(I_Cooldown(slot));
         }
 	}
 
-    private IEnumerator I_Cooldown(AbilitySlot slot)
-    {
-        slot.activeAbility.isOnCooldown = true;
-        float cooldown = slot.activeAbility.cooldown;
-        float t = 0f;
-        while (t < cooldown)
-        {
-            yield return new WaitForEndOfFrame();
-            t += Time.deltaTime;
-        }
-        slot.activeAbility.isOnCooldown = false;
-    }
 
     private bool GetIsAbilityLocked()
 	{

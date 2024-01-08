@@ -17,8 +17,7 @@ public partial class SimpleAbility : BaseAbility
 		Collider2D[] colliders = Physics2D.OverlapBoxAll(position, hitboxScale, targetTransform.rotation.z, targetLayers);
 		foreach (Collider2D col in colliders)
 		{
-			Debug.Log(col.gameObject.name);
-			//deal damage with current weapon tier
+			col.gameObject.GetComponent<EnemyBase>().ReduceHealth(GetCurrentDamage());
 		}
 	}
 
