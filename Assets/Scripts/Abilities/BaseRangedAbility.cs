@@ -11,8 +11,10 @@ public class BaseRangedAbility : BaseAbility
 	public int numProjectiles = 3;
 	public float delayBetweenShots = 0.15f;
 
-	public int damage = 10;
-	public int growth = 0;
+	public int baseDamage = 10;
+	public int damageGrowth = 0;
+
+	public int currentWeaponTier;
 
 	protected List<Projectile> projectileList = new List<Projectile>();
 
@@ -23,7 +25,6 @@ public class BaseRangedAbility : BaseAbility
 
 	IEnumerator ShootAll(GameObject caster, Transform targetTransform, Vector3 position)
 	{
-		
 		for (int i = 0; i < numProjectiles; i++)
 		{
 			Quaternion rotVal = targetTransform.rotation;
@@ -35,9 +36,14 @@ public class BaseRangedAbility : BaseAbility
 				projectileList.Add(p);
 			}
 			Vector2 targetVel = targetTransform.right.normalized * launchVelocity;
-			p.Init(damage, position, rotVal);
+			p.Init(baseDamage, position, rotVal);
 			p.FireProjectile(targetVel);
 			yield return new WaitForSeconds(delayBetweenShots);
 		}
+	}
+
+	public int GetCurrentDamage()
+	{
+		return baseDamage + (currentWeaponTier * damageGrowth);
 	}
 }
