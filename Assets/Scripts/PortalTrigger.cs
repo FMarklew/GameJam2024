@@ -8,6 +8,9 @@ public class PortalTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if()
+        if (_playerMask == (_playerMask | (1 << collision.gameObject.layer)))
+        {
+            GameManager.Instance.StartNextLevel();
+        }
     }
 }

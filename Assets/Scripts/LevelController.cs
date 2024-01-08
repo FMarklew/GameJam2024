@@ -13,12 +13,16 @@ public class LevelController : MonoBehaviour
 
     [SerializeField] private string _levelName;
     [SerializeField] private List<SpawnData> _spawns;
+    [SerializeField] private Transform _playerSpawn;
     [SerializeField] private PortalTrigger _portal;
 
     private List<GameObject> _activeObjects = new List<GameObject>();
 
+    private Coroutine _checkLevelCoroutine;
+
     public void StartLevel()
     {
+        GameManager.Instance.MovePlayer(_playerSpawn);
         SpawnObjects();
     }
 
@@ -37,6 +41,17 @@ public class LevelController : MonoBehaviour
 
     public void CheckForLevelOver()
     {
+        if(_checkLevelCoroutine != null)
+        {
+            StopCoroutine(_checkLevelCoroutine);
+        }
+        _checkLevelCoroutine = StartCoroutine(I_CheckForLevelOver());
+    }
+
+    private IEnumerator I_CheckForLevelOver()
+    {
+        yield return new WaitForSeconds(1f);
+
         bool levelOver = true;
         foreach (GameObject activeObject in _activeObjects)
         {

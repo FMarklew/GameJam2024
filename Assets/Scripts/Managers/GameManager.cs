@@ -5,12 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance => _instance;
-    public GameObject player => _player;
+    public GameObject player;
 
     [SerializeField] private List<LevelController> _levels;
 
     private static GameManager _instance;
-    private GameObject _player;
     private int _currentLevel = 0;
 
     private void Awake()
@@ -45,5 +44,11 @@ public class GameManager : MonoBehaviour
         }
 
         _levels[_currentLevel].StartLevel();
+    }
+
+    public void MovePlayer(Transform pTarget)
+    {
+        // reset player health
+        player.transform.position = pTarget.position;
     }
 }

@@ -81,6 +81,11 @@ public class EnemyBase : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnEnemyKilled();
+    }
+
     private void StartAttacking()
     {
         _isAttacking = true;
