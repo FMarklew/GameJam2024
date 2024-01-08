@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2031870441127379887}
-  - component: {fileID: 1369595901028482819}
+  - component: {fileID: 1150388992117218948}
   m_Layer: 0
   m_Name: Flamethrower
   m_TagString: Untagged
@@ -30,10 +30,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6025873735124691123}
+  - {fileID: 1366827120909987412}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1369595901028482819
+--- !u!114 &1150388992117218948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,28 +42,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1443791219452881985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bedadba08d00ced4d977b81c8fc1a3de, type: 3}
+  m_Script: {fileID: 11500000, guid: da6f9809096849d4babb9e8394ed271d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: Flamethrower
+  abilityName: Flamethower
   hasCooldown: 1
-  cooldown: 1
-  castingTime: 0.3
+  cooldown: 2
+  castingTime: 0.15
   isOnCooldown: 0
   castOffset: 1.5
-  spritePrefab: {fileID: 4811992529361822807}
-  visualDuration: 0.2
+  spritePrefab: {fileID: 7611597679907308317}
+  visualDuration: 0.6
   moveSpeedTierWhenEquipped: 0
   abilityTags: 01000000
-  canLifesteal: 1
+  canLifesteal: 0
   currentWeaponTier: 0
   hitboxScale: {x: 2, y: 3}
   targetLayers:
     serializedVersion: 2
     m_Bits: 64
-  baseDamage: 0
+  baseDamage: 10
   damageGrowth: 0
---- !u!1 &4811992529361822807
+  numChecks: 6
+  delayBetweenChecks: 0.1
+--- !u!1 &3777763875574363457
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,37 +73,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6025873735124691123}
-  - component: {fileID: 3225528829476957170}
+  - component: {fileID: 1523069452350540902}
+  - component: {fileID: 3830379305991329270}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &6025873735124691123
+  m_IsActive: 1
+--- !u!4 &1523069452350540902
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4811992529361822807}
+  m_GameObject: {fileID: 3777763875574363457}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2031870441127379887}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3225528829476957170
+  m_Father: {fileID: 1366827120909987412}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!212 &3830379305991329270
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4811992529361822807}
+  m_GameObject: {fileID: 3777763875574363457}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -136,7 +138,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c446a685d62fb544844956b20257663, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -147,3 +149,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7611597679907308317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1366827120909987412}
+  m_Layer: 0
+  m_Name: Flame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1366827120909987412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7611597679907308317}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1523069452350540902}
+  m_Father: {fileID: 2031870441127379887}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

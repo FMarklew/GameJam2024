@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2031870441127379887
 Transform:
   m_ObjectHideFlags: 0
@@ -50,7 +50,18 @@ MonoBehaviour:
   castingTime: 0
   isOnCooldown: 0
   castOffset: 0
+  spritePrefab: {fileID: 0}
   visualDuration: 0.2
   moveSpeedTierWhenEquipped: 1
-  abilityTags: 
+  abilityTags: 02000000
   playerStats: {fileID: 11400000, guid: 95c1039bdadd79d4f90dd5a21173ad85, type: 2}
+  potionEffect: 0
+  potionTiers:
+  - affectorAmt: 25
+    affectorDuration: 0
+  - affectorAmt: 50
+    affectorDuration: 0
+  - affectorAmt: 100
+    affectorDuration: 0
+  currentTier: 0
+  particlePrefab: {fileID: 0}

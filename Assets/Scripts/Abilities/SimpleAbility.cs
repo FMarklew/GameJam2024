@@ -36,4 +36,9 @@ public partial class SimpleAbility : BaseAbility
 			Gizmos.matrix = Matrix4x4.identity;
 		}
 	}
+
+	public int GetCurrentDamage()
+	{
+		return baseDamage + (currentWeaponTier * damageGrowth);
+	}
 }

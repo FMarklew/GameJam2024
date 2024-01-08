@@ -16,3 +16,5 @@ MonoBehaviour:
   maxHealth: 100
   damageMultiplier: 1
   lifesteal: 0
+  percentageDamageTaken: 100
+  moveSpeedBonus: 0

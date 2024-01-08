@@ -40,9 +40,13 @@ public abstract class BaseAbility : MonoBehaviour
 		var modifiedPos = caster.transform.position + castOffset * targetTransform.right.normalized;
 
 		// visual
-		GameObject go = Instantiate(spritePrefab, modifiedPos, targetTransform.rotation);
-		go.SetActive(true);
-		activeSprites.Add(go);
+		GameObject go = null;
+		if (spritePrefab != null)
+		{
+			go = Instantiate(spritePrefab, modifiedPos, targetTransform.rotation);
+			go.SetActive(true);
+			activeSprites.Add(go);
+		}
 
 		StartCoroutine(DestroyAfterSeconds(go));
 

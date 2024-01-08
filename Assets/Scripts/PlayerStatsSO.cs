@@ -36,6 +36,11 @@ public class PlayerStatsSO : ScriptableObject
 		moveSpeedBonus = speedBonus;
 	}
 
+	public float GetMoveSpeedBonus()
+	{
+		return moveSpeedBonus;
+	}
+
 	public void HealPlayer(int amount)
 	{
         health += amount;
