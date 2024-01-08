@@ -26,6 +26,8 @@ public class EnemyBase : MonoBehaviour
 
     private void OnEnable() 
     {
+        // tier logic here
+
         _health = _maxHealth;
 
         if(_movement == null)
@@ -99,7 +101,6 @@ public class EnemyBase : MonoBehaviour
 
     private void StopAttacking()
     {
-        Debug.Log("following");
         _isAttacking = false;
         if(_attackCoroutine != null)
         {
@@ -127,8 +128,6 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void Attack()
     {
-        Debug.Log("attack: " + _isAttacking);
-
         _attackAbility.ActivateAbility(this.gameObject, _aimController);
     }
 }
