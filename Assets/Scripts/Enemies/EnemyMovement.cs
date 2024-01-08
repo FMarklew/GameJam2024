@@ -32,7 +32,7 @@ public class EnemyMovement : MonoBehaviour
         _enemy = pEnemy;
 
         _agent.stoppingDistance = _range;
-        //_agent.speed = _moveSpeed;
+        _agent.speed = _moveSpeed;
     }
 
     private void Update()

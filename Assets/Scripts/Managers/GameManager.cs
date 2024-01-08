@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance => _instance;
     public GameObject player;
+    public PlayerStatsSO playerStats;
 
     [SerializeField] private List<LevelController> _levels;
 
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     public void StartNextLevel()
     {
+        playerStats.ResetHealth();
         _currentLevel++;
 
         if(_currentLevel >= _levels.Count)

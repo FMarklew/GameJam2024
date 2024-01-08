@@ -49,4 +49,9 @@ public class PlayerStatsSO : ScriptableObject
             health = maxHealth;
 		}
 	}
+
+	public void ResetHealth()
+    {
+		health = maxHealth;
+    }
 }
