@@ -23,7 +23,7 @@ MonoBehaviour:
   castingTime: 0.15
   moveSpeedTierWhenEquipped: 0
   weaponTierInfos:
-  - damage: 7
+  - damage: 10000
     cooldown: 0.8
     castTime: 0.08
   - damage: 10
