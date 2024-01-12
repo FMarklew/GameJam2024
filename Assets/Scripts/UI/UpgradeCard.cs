@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -30,30 +31,23 @@ public class UpgradeCard : MonoBehaviour
 
         glowIcon.color = rarityConfig.rarities[tier].glowColour;
         gemIcon.color = rarityConfig.rarities[tier].gemColour;
-
-        anim.Play(blockedStateString);
     }
 
-    public void AnimateWithCallback(System.Action callback = null)
+    public void AnimateWithCallback(float delay, System.Action callback = null)
 	{
+		anim.Play(blockedStateString);
         storedCallback = callback;
-        anim.Play(animString);
+        StartCoroutine(AnimateAfterDelay(delay));
 	}
+
+	IEnumerator AnimateAfterDelay(float delay)
+	{
+		yield return new WaitForSecondsRealtime(delay);
+		anim.Play(animString);
+    }
 
     public void AnimationDone()
 	{
         storedCallback?.Invoke();
-	}
-
-    public AbilityConfig test_ability;
-    public int tier;
-    [ContextMenu("Init")]
-    public void Test()
-	{
-        Init(tier, test_ability);
-        AnimateWithCallback(()=>
-        {
-            Debug.Log("Animation Done");
-        });
 	}
 }

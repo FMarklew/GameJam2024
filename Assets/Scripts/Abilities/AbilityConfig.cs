@@ -20,5 +20,6 @@ public class AbilityConfig : ScriptableObject
 	public float castingTime = 0f;
 	public PlayerMoveSpeedTiers.PlayerMoveSpeedTier moveSpeedTierWhenEquipped = PlayerMoveSpeedTiers.PlayerMoveSpeedTier.NORMAL;
 
+	
 }
 
