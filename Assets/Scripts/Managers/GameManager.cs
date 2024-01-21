@@ -21,13 +21,13 @@ public class GameManager : MonoBehaviour
         }
 
         Application.targetFrameRate = 60;
-
         _levels[_currentLevel].StartLevel();
     }
 
     public void OnLevelComplete()
     {
         // level transition
+        AbilityGeneratorHandler.Inst.GenerateAndShowAbilities();
     }
 
     public void OnEnemyKilled()

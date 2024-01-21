@@ -12,7 +12,21 @@ public class AbilitySystem : MonoBehaviour
     public AimController aimController;
 
     private float nextAbilityUnlock = 0f;
-	private void Start()
+
+    private static AbilitySystem _inst;
+    public static AbilitySystem Inst { get { return _inst; } }
+
+    private bool abilitySelectionEnabled = false;
+
+    private void Awake()
+    {
+	    if (_inst == null)
+	    {
+		    _inst = this;
+	    }
+    }
+
+    private void Start()
 	{
         cam = Camera.main;
 	}
@@ -33,16 +47,6 @@ public class AbilitySystem : MonoBehaviour
         }
     }
 
-    public void EquipAbility(AbilitySlot slot, BaseAbility ability, int tier)
-    {
-		if (!slot.EquipAbilityInSlot(ability, tier))
-		{
-            Debug.Log("Failed");
-		} else
-		{
-            Debug.Log("Success");
-        }
-    }
 
     private void ActivateAbility(AbilitySlot slot)
 	{
@@ -57,5 +61,25 @@ public class AbilitySystem : MonoBehaviour
     private bool GetIsAbilityLocked()
 	{
         return nextAbilityUnlock > Time.time;
+	}
+
+	public void EnableAbilitySelection()
+	{
+		abilitySelectionEnabled = true;
+	}
+	public void EquipAbility(AbilitySlot slot, BaseAbility ability, int tier)
+	{
+		if (!abilitySelectionEnabled)
+		{
+			abilitySelectionEnabled = false;
+			if (!slot.EquipAbilityInSlot(ability, tier))
+			{
+				Debug.Log("Failed");
+			}
+			else
+			{
+				Debug.Log("Success");
+			}
+		}
 	}
 }

@@ -24,7 +24,6 @@ public class AbilityGeneratorHandler : MonoBehaviour
 	    {
 		    _inst = this;
 	    }
-
     }
 
     private List<AbilityConfig> GenerateAbilities(int size)
@@ -38,11 +37,9 @@ public class AbilityGeneratorHandler : MonoBehaviour
     public void GenerateAndShowAbilities()
     {
 	    List<AbilityConfig> selectedAbilities = GenerateAbilities(TOTAL_SELECTIONS);
-
 	    for (int i = 0; i < upgradeCards.Count; i++)
 	    {
 		    int tier = SelectTier();
-
             upgradeCards[i].Init(tier, selectedAbilities[i]);
 	    }
 
@@ -54,6 +51,8 @@ public class AbilityGeneratorHandler : MonoBehaviour
 	        card.AnimateWithCallback(offset);
 	        offset += cardAnimateOffset;
         }
+
+        AbilitySystem.Inst.EnableAbilitySelection();
     }
 
     private int SelectTier()

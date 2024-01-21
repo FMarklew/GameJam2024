@@ -16,18 +16,19 @@ public class UpgradeCard : MonoBehaviour
     public Image glowIcon;
 
     public GameObject cardback;
-
-    public RarityConfig rarityConfig;
-
+    private AbilityConfig abilityConfig;
+    private RarityConfig rarityConfig;
+    private int currentTier;
     public Animator anim;
-
     private System.Action storedCallback;
 
     public void Init(int tier, AbilityConfig config)
     {
-        titleText.text = config.abilityName;
+	    abilityConfig = config;
+        titleText.text = abilityConfig.abilityName;
+        abilityIcon.sprite = abilityConfig.displaySprite;
 
-        abilityIcon.sprite = config.displaySprite;
+        currentTier = tier;
 
         glowIcon.color = rarityConfig.rarities[tier].glowColour;
         gemIcon.color = rarityConfig.rarities[tier].gemColour;
@@ -40,12 +41,19 @@ public class UpgradeCard : MonoBehaviour
         StartCoroutine(AnimateAfterDelay(delay));
 	}
 
+    // referenced from button
+	public void OnClicked()
+	{
+        //AbilitySystem.Inst.EquipAbility();
+	}
+
 	IEnumerator AnimateAfterDelay(float delay)
 	{
 		yield return new WaitForSecondsRealtime(delay);
 		anim.Play(animString);
     }
 
+    // referenced from animation event
     public void AnimationDone()
 	{
         storedCallback?.Invoke();
